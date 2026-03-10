@@ -1,0 +1,200 @@
+{
+  "slug": "01",
+  "title": {
+    "zh": "從自學程式到創辦 HashiCorp：一段改變雲端基礎設施的旅程",
+    "en": "Mitchell Hashimoto’s New Way of Writing Code"
+  },
+  "description": {
+    "zh": "Mitchell Hashimoto 是 HashiCorp 的共同創辦人，也是 Terraform、Vagrant、Vault 等知名開源工具的創造者。他的工具改變了整個雲端基礎設施管理的方式。在這次訪談中，他回顧了自己的程式生涯、HashiCorp 的誕生，以及開源、雲端與 AI 對軟體工程未來的影響。\n\n本文依照影片內容順序整理，完整梳理 Mitchell 的經歷與觀點。",
+    "en": "Mitchell Hashimoto 是 HashiCorp 的共同創辦人，也是 Terraform、Vagrant、Vault 等知名開源工具的創造者。他的工具改變了整個雲端基礎設施管理的方式。在這次訪談中，他回顧了自己的程式生涯、HashiCorp 的誕生，以及開源、雲端與 AI 對軟體工程未來的影響。\n\n本文依照影片內容順序整理，完整梳理 Mitchell 的經歷與觀點。"
+  },
+  "sections": [
+    {
+      "title": {
+        "zh": "1. 一切的開始：一個 12 歲自學寫程式的少年",
+        "en": "1. 一切的開始：一個 12 歲自學寫程式的少年"
+      },
+      "content": {
+        "zh": "Mitchell 的程式旅程開始得非常早。\n\n他在 12、13 歲左右開始自學寫程式，最初的動機和許多程式設計師一樣——遊戲。\n\n但很快他發現自己更喜歡 Web 開發。當時網路仍是非常早期的年代，Google 甚至還沒有出現。他開始學習：\n\nPHP\n\nPerl\n\n基本網站開發\n\n由於年紀太小、沒有錢買書，他只能透過 網路上的開源程式碼學習。\n\n有一段故事非常經典：\n\n他把 PHP manual 的前幾章列印出來（30–40頁），每天走路上學時反覆閱讀。\n某一天，他突然理解了 PHP 中的 $ 符號代表 變數（variables）。\n\n這個瞬間成為他的突破點。\n\n理解變數之後，他的學習速度突然加快，開始能真正寫程式。",
+        "en": "Mitchell 的程式旅程開始得非常早。\n\n他在 12、13 歲左右開始自學寫程式，最初的動機和許多程式設計師一樣——遊戲。\n\n但很快他發現自己更喜歡 Web 開發。當時網路仍是非常早期的年代，Google 甚至還沒有出現。他開始學習：\n\nPHP\n\nPerl\n\n基本網站開發\n\n由於年紀太小、沒有錢買書，他只能透過 網路上的開源程式碼學習。\n\n有一段故事非常經典：\n\n他把 PHP manual 的前幾章列印出來（30–40頁），每天走路上學時反覆閱讀。\n某一天，他突然理解了 PHP 中的 $ 符號代表 變數（variables）。\n\n這個瞬間成為他的突破點。\n\n理解變數之後，他的學習速度突然加快，開始能真正寫程式。"
+      }
+    },
+    {
+      "title": {
+        "zh": "2. 青少年時期：接案、模仿網站、賺第一筆錢",
+        "en": "2. 青少年時期：接案、模仿網站、賺第一筆錢"
+      },
+      "content": {
+        "zh": "在高中時期，Mitchell 已經每天寫程式。\n\n他做過很多事情：\n\n建立遊戲相關網站\n\n建立論壇\n\n嘗試複製網站功能\n\n模仿 PayPal 的付款系統\n\n甚至還：\n\n假裝自己 18 歲在接案網站接工作。\n\n他接過的案子包括：\n\n圖片上傳功能\n\n小型網站開發\n\n每個案子可能只有 $50 或 $100，但這讓他開始用程式賺錢。",
+        "en": "在高中時期，Mitchell 已經每天寫程式。\n\n他做過很多事情：\n\n建立遊戲相關網站\n\n建立論壇\n\n嘗試複製網站功能\n\n模仿 PayPal 的付款系統\n\n甚至還：\n\n假裝自己 18 歲在接案網站接工作。\n\n他接過的案子包括：\n\n圖片上傳功能\n\n小型網站開發\n\n每個案子可能只有 $50 或 $100，但這讓他開始用程式賺錢。"
+      }
+    },
+    {
+      "title": {
+        "zh": "3. 程式設計是一條孤獨的路",
+        "en": "3. 程式設計是一條孤獨的路"
+      },
+      "content": {
+        "zh": "在當時，喜歡電腦並不是一件酷的事情。\n\nMitchell 說：\n\n當時如果你喜歡電腦，幾乎等於社交死亡。\n\n因此：\n\n他在學校 完全不提自己寫程式\n\n這幾乎是他的秘密\n\n但他在網路上找到了同好：\n\nMSN Messenger\n\nAOL Messenger\n\n各種論壇\n\n這些線上朋友後來很多都成為他長期的朋友。",
+        "en": "在當時，喜歡電腦並不是一件酷的事情。\n\nMitchell 說：\n\n當時如果你喜歡電腦，幾乎等於社交死亡。\n\n因此：\n\n他在學校 完全不提自己寫程式\n\n這幾乎是他的秘密\n\n但他在網路上找到了同好：\n\nMSN Messenger\n\nAOL Messenger\n\n各種論壇\n\n這些線上朋友後來很多都成為他長期的朋友。"
+      }
+    },
+    {
+      "title": {
+        "zh": "4. 第一份真正的工作：Ruby on Rails",
+        "en": "4. 第一份真正的工作：Ruby on Rails"
+      },
+      "content": {
+        "zh": "在大學（University of Washington）期間，他收到一封改變人生的 email。\n\n有人問他：\n\n「你想成為 Ruby on Rails 工程師嗎？」\n\n當時他只會 PHP，完全不會 Ruby。\n\n但他還是接受了這份工作。\n\n這家公司是一間 Rails 顧問公司，專門幫客戶建立 MVP。\n\n他在那裡做過：\n\nYouTube 類型網站\n\n電商網站\n\n慈善平台\n\n這段經歷讓他快速接觸到各種不同的技術與產品。",
+        "en": "在大學（University of Washington）期間，他收到一封改變人生的 email。\n\n有人問他：\n\n「你想成為 Ruby on Rails 工程師嗎？」\n\n當時他只會 PHP，完全不會 Ruby。\n\n但他還是接受了這份工作。\n\n這家公司是一間 Rails 顧問公司，專門幫客戶建立 MVP。\n\n他在那裡做過：\n\nYouTube 類型網站\n\n電商網站\n\n慈善平台\n\n這段經歷讓他快速接觸到各種不同的技術與產品。"
+      }
+    },
+    {
+      "title": {
+        "zh": "5. 一個奇怪的導師改變了他的方向",
+        "en": "5. 一個奇怪的導師改變了他的方向"
+      },
+      "content": {
+        "zh": "在這家公司，有一位非常神秘的工程師。\n\n特徵：\n\n長髮\n\n不用滑鼠\n\n使用 Linux\n\n坐在角落\n\nMitchell 對這個人非常好奇。\n\n某天這位工程師做了一件事情：\n\n他拔掉 Mitchell 的滑鼠。\n\n然後說：\n\n「你以後都不能用滑鼠了。」\n\nMitchell 花了一週時間學會 完全用鍵盤操作電腦。\n\n之後他又學會：\n\nterminal\n\nscreen\n\nSSH\n\nLinux package manager\n\n這讓他開始進入 基礎設施 (infrastructure) 的世界。",
+        "en": "在這家公司，有一位非常神秘的工程師。\n\n特徵：\n\n長髮\n\n不用滑鼠\n\n使用 Linux\n\n坐在角落\n\nMitchell 對這個人非常好奇。\n\n某天這位工程師做了一件事情：\n\n他拔掉 Mitchell 的滑鼠。\n\n然後說：\n\n「你以後都不能用滑鼠了。」\n\nMitchell 花了一週時間學會 完全用鍵盤操作電腦。\n\n之後他又學會：\n\nterminal\n\nscreen\n\nSSH\n\nLinux package manager\n\n這讓他開始進入 基礎設施 (infrastructure) 的世界。"
+      }
+    },
+    {
+      "title": {
+        "zh": "6. 一個失敗的大學研究專案",
+        "en": "6. 一個失敗的大學研究專案"
+      },
+      "content": {
+        "zh": "在大學時期，他加入了一個研究計畫：\n\nSeattle Project\n\n目標是建立一個類似：\n\nFolding@Home\n\n分散式運算網路\n\n讓世界各地的電腦可以貢獻算力。\n\nMitchell 的任務是：\n\n建立節點管理與基礎設施系統\n\n但他 完全失敗了。\n\n然而這個失敗非常重要。\n\n他在筆記本中寫下：\n\n自己無法完成的原因：\n\n無法 declaratively 管理資源\n\n無法建立私有網路\n\n無法管理節點\n\n這些問題後來變成：\n\nHashiCorp 的產品藍圖。",
+        "en": "在大學時期，他加入了一個研究計畫：\n\nSeattle Project\n\n目標是建立一個類似：\n\nFolding@Home\n\n分散式運算網路\n\n讓世界各地的電腦可以貢獻算力。\n\nMitchell 的任務是：\n\n建立節點管理與基礎設施系統\n\n但他 完全失敗了。\n\n然而這個失敗非常重要。\n\n他在筆記本中寫下：\n\n自己無法完成的原因：\n\n無法 declaratively 管理資源\n\n無法建立私有網路\n\n無法管理節點\n\n這些問題後來變成：\n\nHashiCorp 的產品藍圖。"
+      }
+    },
+    {
+      "title": {
+        "zh": "7. 一封 Email 開啟創業",
+        "en": "7. 一封 Email 開啟創業"
+      },
+      "content": {
+        "zh": "他的研究主管 Arman 看了這本筆記。\n\n幾週後發了一封 email：\n\n「要不要一起創業？」\n\nMitchell 兩分鐘內回覆：\n\n「好。」\n\nHashiCorp 就這樣誕生了。",
+        "en": "他的研究主管 Arman 看了這本筆記。\n\n幾週後發了一封 email：\n\n「要不要一起創業？」\n\nMitchell 兩分鐘內回覆：\n\n「好。」\n\nHashiCorp 就這樣誕生了。"
+      }
+    },
+    {
+      "title": {
+        "zh": "8. 第一個成功產品：Vagrant",
+        "en": "8. 第一個成功產品：Vagrant"
+      },
+      "content": {
+        "zh": "在顧問公司工作時，他遇到一個問題：\n\n每個專案都有不同的開發環境。\n\n建立環境可能需要 半天時間。\n\n因此他做了一個工具：\n\nVagrant\n\n目標是：\n\n「雙擊就能啟動一個開發環境。」\n\n技術：\n\nVirtualBox\n\n虛擬機\n\n這解決了開發環境不可重現的問題。",
+        "en": "在顧問公司工作時，他遇到一個問題：\n\n每個專案都有不同的開發環境。\n\n建立環境可能需要 半天時間。\n\n因此他做了一個工具：\n\nVagrant\n\n目標是：\n\n「雙擊就能啟動一個開發環境。」\n\n技術：\n\nVirtualBox\n\n虛擬機\n\n這解決了開發環境不可重現的問題。"
+      }
+    },
+    {
+      "title": {
+        "zh": "9. 雲端時代的到來",
+        "en": "9. 雲端時代的到來"
+      },
+      "content": {
+        "zh": "2010 年左右，AWS 剛推出不久。\n\n當時：\n\nEC2 非常不穩定\n\n服務很少\n\n幾乎只有 S3 可靠\n\n但 Mitchell 感覺：\n\n這就是未來。\n\n並不是因為市場分析，而是：\n\n它感覺是更好的方式。",
+        "en": "2010 年左右，AWS 剛推出不久。\n\n當時：\n\nEC2 非常不穩定\n\n服務很少\n\n幾乎只有 S3 可靠\n\n但 Mitchell 感覺：\n\n這就是未來。\n\n並不是因為市場分析，而是：\n\n它感覺是更好的方式。"
+      }
+    },
+    {
+      "title": {
+        "zh": "10. HashiCorp 的產品版圖",
+        "en": "10. HashiCorp 的產品版圖"
+      },
+      "content": {
+        "zh": "HashiCorp 逐步推出一系列工具。\n\n1️⃣ Vagrant\n\n開發環境管理\n\n2️⃣ Packer\n\n建立機器映像 (machine images)\n\n3️⃣ Consul\n\n服務發現 (service discovery)\n\n4️⃣ Terraform\n\nInfrastructure as Code\n\n描述基礎設施：\n\n這段文字 = 整個 AWS infrastructure\n\n執行後：\n\n建立 VPC\n\nSubnets\n\nInstances\n\nGateways\n\n甚至可以一鍵刪除。\n\n5️⃣ Vault\n\nSecrets 管理\n\n例如：\n\n密碼\n\nAPI key\n\n信用卡資料\n\nPII\n\n6️⃣ Nomad\n\n工作排程系統\n\n在多台機器上自動部署應用。",
+        "en": "HashiCorp 逐步推出一系列工具。\n\n1️⃣ Vagrant\n\n開發環境管理\n\n2️⃣ Packer\n\n建立機器映像 (machine images)\n\n3️⃣ Consul\n\n服務發現 (service discovery)\n\n4️⃣ Terraform\n\nInfrastructure as Code\n\n描述基礎設施：\n\n這段文字 = 整個 AWS infrastructure\n\n執行後：\n\n建立 VPC\n\nSubnets\n\nInstances\n\nGateways\n\n甚至可以一鍵刪除。\n\n5️⃣ Vault\n\nSecrets 管理\n\n例如：\n\n密碼\n\nAPI key\n\n信用卡資料\n\nPII\n\n6️⃣ Nomad\n\n工作排程系統\n\n在多台機器上自動部署應用。"
+      }
+    },
+    {
+      "title": {
+        "zh": "11. 開源與商業模式的困境",
+        "en": "11. 開源與商業模式的困境"
+      },
+      "content": {
+        "zh": "HashiCorp 一開始 完全沒有商業模式。\n\n前四年：\n\n幾乎沒有收入\n\n只有開源專案\n\n投資人仍然支持，因為：\n\nGitHub stars\n\n下載量\n\n開發者採用\n\n顯示出 產品市場契合度 (product-market fit)。",
+        "en": "HashiCorp 一開始 完全沒有商業模式。\n\n前四年：\n\n幾乎沒有收入\n\n只有開源專案\n\n投資人仍然支持，因為：\n\nGitHub stars\n\n下載量\n\n開發者採用\n\n顯示出 產品市場契合度 (product-market fit)。"
+      }
+    },
+    {
+      "title": {
+        "zh": "12. 第一個商業模式失敗",
+        "en": "12. 第一個商業模式失敗"
+      },
+      "content": {
+        "zh": "他們第一個商業產品叫：\n\nAtlas\n\n但失敗原因是：\n\n必須同時使用所有 HashiCorp 工具。\n\n企業不願意這樣做。\n\n此外還有另一個問題：\n\n企業內部不知道 誰要付錢。\n\n例如：\n\nsecurity 部門\n\nnetworking 部門\n\ninfrastructure 部門\n\n大家互相推責任。",
+        "en": "他們第一個商業產品叫：\n\nAtlas\n\n但失敗原因是：\n\n必須同時使用所有 HashiCorp 工具。\n\n企業不願意這樣做。\n\n此外還有另一個問題：\n\n企業內部不知道 誰要付錢。\n\n例如：\n\nsecurity 部門\n\nnetworking 部門\n\ninfrastructure 部門\n\n大家互相推責任。"
+      }
+    },
+    {
+      "title": {
+        "zh": "13. 轉折點：Open Core 模型",
+        "en": "13. 轉折點：Open Core 模型"
+      },
+      "content": {
+        "zh": "某次董事會後，他們意識到方向錯了。\n\n於是決定：\n\n全部重來。\n\n新的模式：\n\nOpen Core\n\n基礎版本開源\n\n企業功能閉源\n\n並且：\n\n每個產品獨立商業化\n\n第一個成功產品是：\n\nVault Enterprise\n\n企業需要：\n\nsecrets replication\n\n高可用\n\n支援服務\n\n這讓公司開始有收入。",
+        "en": "某次董事會後，他們意識到方向錯了。\n\n於是決定：\n\n全部重來。\n\n新的模式：\n\nOpen Core\n\n基礎版本開源\n\n企業功能閉源\n\n並且：\n\n每個產品獨立商業化\n\n第一個成功產品是：\n\nVault Enterprise\n\n企業需要：\n\nsecrets replication\n\n高可用\n\n支援服務\n\n這讓公司開始有收入。"
+      }
+    },
+    {
+      "title": {
+        "zh": "14. Terraform 為何爆紅",
+        "en": "14. Terraform 為何爆紅"
+      },
+      "content": {
+        "zh": "很多人認為 Terraform 成功是因為：\n\n「第一個進市場」\n\nMitchell 說：\n\nTerraform 其實是第七個。\n\n真正原因是：\n\n他到處演講\n\n不斷參加 conference\n\n與開發者直接交流\n\n甚至 9 年內每 8 天就旅行一次。\n\n他在飛機上寫程式：\n\n下載 GitHub issues\n\n分解成 15 分鐘任務\n\n飛機上逐一解決\n\n降落後一次 push 30 個 commit。",
+        "en": "很多人認為 Terraform 成功是因為：\n\n「第一個進市場」\n\nMitchell 說：\n\nTerraform 其實是第七個。\n\n真正原因是：\n\n他到處演講\n\n不斷參加 conference\n\n與開發者直接交流\n\n甚至 9 年內每 8 天就旅行一次。\n\n他在飛機上寫程式：\n\n下載 GitHub issues\n\n分解成 15 分鐘任務\n\n飛機上逐一解決\n\n降落後一次 push 30 個 commit。"
+      }
+    },
+    {
+      "title": {
+        "zh": "15. VMware 差點買下 HashiCorp",
+        "en": "15. VMware 差點買下 HashiCorp"
+      },
+      "content": {
+        "zh": "創業兩年後：\n\nVMware 想收購公司。\n\n最初報價：\n\n$20M\n\nMitchell 和 Arman 只有 23 歲。\n\n這是巨額金錢。\n\n但他們想到：\n\n賣掉公司後，夢想可能會死。\n\n最後他們提出：\n\n$100M\n\nVMware 董事會投票：\n\n差一票未通過。\n\n如果那票通過：\n\nTerraform 可能永遠不會出現。",
+        "en": "創業兩年後：\n\nVMware 想收購公司。\n\n最初報價：\n\n$20M\n\nMitchell 和 Arman 只有 23 歲。\n\n這是巨額金錢。\n\n但他們想到：\n\n賣掉公司後，夢想可能會死。\n\n最後他們提出：\n\n$100M\n\nVMware 董事會投票：\n\n差一票未通過。\n\n如果那票通過：\n\nTerraform 可能永遠不會出現。"
+      }
+    },
+    {
+      "title": {
+        "zh": "16. HashiCorp 上市",
+        "en": "16. HashiCorp 上市"
+      },
+      "content": {
+        "zh": "HashiCorp 在 2021 年 IPO。\n\n上市準備：\n\n需要一年以上\n\n模擬財報電話會議\n\n法律高度保密\n\n甚至 Mitchell 的父母都不知道他要上市。",
+        "en": "HashiCorp 在 2021 年 IPO。\n\n上市準備：\n\n需要一年以上\n\n模擬財報電話會議\n\n法律高度保密\n\n甚至 Mitchell 的父母都不知道他要上市。"
+      }
+    },
+    {
+      "title": {
+        "zh": "17. 他對雲端巨頭的看法",
+        "en": "17. 他對雲端巨頭的看法"
+      },
+      "content": {
+        "zh": "Mitchell 說：\n\nAWS 當時非常傲慢。\n\n有一種感覺：\n\n「我們隨時可以做一個產品毀掉你的公司。」\n\n但同時 AWS 也有：\n\n世界上最優秀的工程師之一。",
+        "en": "Mitchell 說：\n\nAWS 當時非常傲慢。\n\n有一種感覺：\n\n「我們隨時可以做一個產品毀掉你的公司。」\n\n但同時 AWS 也有：\n\n世界上最優秀的工程師之一。"
+      }
+    },
+    {
+      "title": {
+        "zh": "18. AI 對開源的衝擊",
+        "en": "18. AI 對開源的衝擊"
+      },
+      "content": {
+        "zh": "Mitchell 提出一個重要觀點：\n\nAI 可能改變開源模式。\n\n因為 AI 可以：\n\n自動產生 pull request\n\n產生看起來合理但錯誤的程式碼\n\n而開源原本依賴：\n\n信任。\n\n未來可能變成：\n\nDefault deny → 必須先建立信任。\n\n結語\n\nMitchell Hashimoto 的故事展示了一個典型但極具影響力的技術創業旅程：\n\n自學程式\n\n發現基礎設施問題\n\n開源工具\n\n找到商業模式\n\n改變整個產業\n\nHashiCorp 的成功不是因為第一個進市場，而是：\n\n長期專注解決真實問題。\n\n正如 Mitchell 所說：\n\n好的工程師不是只寫程式，而是理解系統與限制。\n\n而這種思維，正是現代軟體工程的核心。",
+        "en": "Mitchell 提出一個重要觀點：\n\nAI 可能改變開源模式。\n\n因為 AI 可以：\n\n自動產生 pull request\n\n產生看起來合理但錯誤的程式碼\n\n而開源原本依賴：\n\n信任。\n\n未來可能變成：\n\nDefault deny → 必須先建立信任。\n\n結語\n\nMitchell Hashimoto 的故事展示了一個典型但極具影響力的技術創業旅程：\n\n自學程式\n\n發現基礎設施問題\n\n開源工具\n\n找到商業模式\n\n改變整個產業\n\nHashiCorp 的成功不是因為第一個進市場，而是：\n\n長期專注解決真實問題。\n\n正如 Mitchell 所說：\n\n好的工程師不是只寫程式，而是理解系統與限制。\n\n而這種思維，正是現代軟體工程的核心。"
+      }
+    }
+  ],
+  "videoId": "WjckELpzLOU",
+  "channelSubscriberCount": "462K",
+  "likeCount": "3.2K",
+  "viewCount": "209K",
+  "publishedAt": "12 days ago",
+  "videoTitle": "Mitchell Hashimoto’s new way of writing code",
+  "channelTitle": "The Pragmatic Engineer"
+}

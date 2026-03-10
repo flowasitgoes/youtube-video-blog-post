@@ -1,0 +1,104 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { getArticle } from "@/lib/getArticle";
+import { getArticles } from "@/lib/getArticles";
+import ArticleLayout from "@/components/ArticleLayout";
+import SectionBlock from "@/components/SectionBlock";
+import LanguageSwitch from "@/components/LanguageSwitch";
+import type { Locale } from "@/lib/types";
+
+const SITE_NAME = "YouTube 摘要博客";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
+};
+
+function getLang(searchParams: { lang?: string }): Locale {
+  const lang = searchParams?.lang;
+  return lang === "en" ? "en" : "zh";
+}
+
+export async function generateStaticParams() {
+  const articles = getArticles();
+  return articles.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({ params, searchParams }: Props) {
+  const { slug } = await params;
+  const resolved = await searchParams;
+  const lang = getLang(resolved);
+  const article = getArticle(slug);
+  if (!article) return { title: SITE_NAME };
+  const title = article.title[lang] || article.title.zh;
+  const description = article.description[lang] || article.description.zh;
+  const url = `https://yoursite.com/blog/${slug}?lang=${lang}`;
+  return {
+    title: `${title} | ${SITE_NAME}`,
+    description,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url,
+    },
+  };
+}
+
+export default async function BlogSlugPage({ params, searchParams }: Props) {
+  const { slug } = await params;
+  const resolved = await searchParams;
+  const lang = getLang(resolved);
+  const article = getArticle(slug);
+  if (!article) notFound();
+
+  const title = article.title[lang] || article.title.zh;
+  const description = article.description[lang] || article.description.zh;
+
+  return (
+    <main className="min-h-screen bg-white dark:bg-neutral-950">
+      <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/95 px-4 py-4 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 sm:px-6">
+        <div className="mx-auto flex max-w-[42rem] items-center justify-between">
+          <Link
+            href="/blog"
+            className="text-lg font-semibold text-neutral-900 dark:text-neutral-100"
+          >
+            {SITE_NAME}
+          </Link>
+          <LanguageSwitch />
+        </div>
+      </header>
+      <ArticleLayout
+        title={title}
+        description={description}
+        videoId={article.videoId}
+        videoMeta={
+          article.videoTitle ||
+          article.channelTitle ||
+          article.viewCount ||
+          article.likeCount ||
+          article.channelSubscriberCount ||
+          article.publishedAt ||
+          article.videoDescription
+            ? {
+                videoTitle: article.videoTitle,
+                channelTitle: article.channelTitle,
+                viewCount: article.viewCount,
+                likeCount: article.likeCount,
+                channelSubscriberCount: article.channelSubscriberCount,
+                publishedAt: article.publishedAt,
+                videoDescription: article.videoDescription,
+              }
+            : undefined
+        }
+      >
+        {article.sections.map((section, i) => (
+          <SectionBlock
+            key={i}
+            title={section.title[lang] || section.title.zh}
+            content={section.content[lang] || section.content.zh}
+          />
+        ))}
+      </ArticleLayout>
+    </main>
+  );
+}
