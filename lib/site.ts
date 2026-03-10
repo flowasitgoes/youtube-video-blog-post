@@ -2,7 +2,7 @@ import type { Locale } from "./types";
 
 /** 網站標題 */
 export const SITE_NAME_ZH = "Youtube 摘要博客";
-export const SITE_NAME_EN = "Video Digest – YouTube Video Summary & Insight";
+export const SITE_NAME_EN = "Video Digest – Youtube Summary & Insight";
 
 /** 副標 */
 export const SUBTITLE_ZH = "將 YouTube 的長影片整理成結構清晰、易於閱讀的文章。";

@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/types";
 
 const LOCALES: { value: Locale; label: string }[] = [
-  { value: "zh", label: "中文" },
+  { value: "zh", label: "繁體中文" },
   { value: "en", label: "English" },
 ];
 
@@ -22,7 +22,7 @@ export default function LanguageSwitch() {
   };
 
   return (
-    <nav className="flex gap-2" aria-label="语言切换">
+    <nav className="flex gap-2" aria-label="語言切換">
       {LOCALES.map(({ value, label }) => (
         <Link
           key={value}

@@ -42,7 +42,7 @@ export default async function BlogPage({ searchParams }: Props) {
         <ul className="space-y-4">
           {articles.length === 0 ? (
             <li className="text-neutral-500 dark:text-neutral-400">
-              {lang === "zh" ? "暂无文章" : "No articles yet."}
+              {lang === "zh" ? "暫無文章" : "No articles yet."}
             </li>
           ) : (
             articles.map((a) => (
