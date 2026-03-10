@@ -16,5 +16,5 @@ export function getArticles(): Article[] {
     const article = getArticle(slug);
     if (article) articles.push(article);
   }
-  return articles.sort((a, b) => a.slug.localeCompare(b.slug));
+  return articles.sort((a, b) => (b.addedAt ?? "").localeCompare(a.addedAt ?? "") || b.slug.localeCompare(a.slug));
 }

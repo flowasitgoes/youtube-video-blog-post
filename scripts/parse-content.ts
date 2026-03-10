@@ -391,7 +391,9 @@ async function main(): Promise<void> {
   }
   for (const file of files) {
     const fullPath = path.join(CONTENT_DIR, file);
+    const stat = fs.statSync(fullPath);
     let article = parseFile(fullPath);
+    article = { ...article, addedAt: stat.mtime.toISOString().slice(0, 10) };
     const txtMeta: Partial<YouTubeMeta> = {};
     if (article.channelSubscriberCount) txtMeta.channelSubscriberCount = article.channelSubscriberCount;
     if (article.likeCount) txtMeta.likeCount = article.likeCount;

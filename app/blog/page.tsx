@@ -65,9 +65,17 @@ export default async function BlogPage({ searchParams }: Props) {
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h2 className="font-semibold text-neutral-900 dark:text-neutral-100">
-                      {a.title[lang] || a.title.zh}
-                    </h2>
+                    <div className="flex items-start justify-between gap-2">
+                      <h2 className="font-semibold text-neutral-900 dark:text-neutral-100">
+                        {a.title[lang] || a.title.zh}
+                      </h2>
+                      {a.addedAt ? (
+                        <div className="shrink-0 text-right text-xs text-neutral-500 dark:text-neutral-400">
+                          <time dateTime={a.addedAt}>{a.addedAt}</time>
+                          <div className="text-neutral-400 dark:text-neutral-500">added</div>
+                        </div>
+                      ) : null}
+                    </div>
                     <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                       {a.description[lang] || a.description.zh}
                     </p>

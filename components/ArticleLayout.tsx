@@ -120,15 +120,12 @@ export default function ArticleLayout({
               </div>
               {/* 觀看次數、日期與描述 - 灰底資訊區 */}
               <div className="mt-3 rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
-                <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-sm text-neutral-700 dark:text-neutral-300">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5 text-sm text-neutral-700 dark:text-neutral-300">
                   {(videoMeta.viewCount != null && videoMeta.viewCount !== "") && (
                     <span>觀看次數：{formatCount(videoMeta.viewCount)} 次</span>
                   )}
                   {videoMeta.publishedAt && (
-                    <>
-                      {(videoMeta.viewCount != null && videoMeta.viewCount !== "") && <span className="text-neutral-400">·</span>}
-                      <span>{formatPublishedAt(videoMeta.publishedAt)}</span>
-                    </>
+                    <span className="ml-auto">{formatPublishedAt(videoMeta.publishedAt)}</span>
                   )}
                 </div>
                 {videoMeta.videoDescription && (
