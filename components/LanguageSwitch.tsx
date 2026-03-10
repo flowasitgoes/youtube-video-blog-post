@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import type { Locale } from "@/lib/types";
 
@@ -9,17 +8,14 @@ const LOCALES: { value: Locale; label: string }[] = [
   { value: "en", label: "English" },
 ];
 
-export default function LanguageSwitch() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const currentLang = (searchParams.get("lang") as Locale) || "zh";
+type Props = {
+  currentLang: Locale;
+  /** 當前頁路徑後綴（不含 /zh 或 /en），由 server 傳入，避免 usePathname 在 SSR 出錯 */
+  pathSuffix?: string;
+};
 
-  const href = (lang: Locale) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("lang", lang);
-    const q = params.toString();
-    return q ? `${pathname}?${q}` : pathname;
-  };
+export default function LanguageSwitch({ currentLang, pathSuffix = "" }: Props) {
+  const href = (lang: Locale) => `/${lang}${pathSuffix}`;
 
   return (
     <nav className="flex gap-2" aria-label="語言切換">

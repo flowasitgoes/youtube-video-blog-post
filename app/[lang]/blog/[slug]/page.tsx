@@ -9,33 +9,32 @@ import { getSiteName } from "@/lib/site";
 import type { Locale } from "@/lib/types";
 
 type Props = {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ lang?: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 };
-
-function getLang(searchParams: { lang?: string }): Locale {
-  const lang = searchParams?.lang;
-  return lang === "en" ? "en" : "zh";
-}
 
 export async function generateStaticParams() {
   const zhArticles = getArticles("zh");
   const enArticles = getArticles("en");
   const slugs = new Set([...zhArticles.map((a) => a.slug), ...enArticles.map((a) => a.slug)]);
-  return Array.from(slugs).map((slug) => ({ slug }));
+  const params: { lang: string; slug: string }[] = [];
+  Array.from(slugs).forEach((slug) => {
+    params.push({ lang: "zh", slug });
+    params.push({ lang: "en", slug });
+  });
+  return params;
 }
 
-export async function generateMetadata({ params, searchParams }: Props) {
-  const { slug } = await params;
-  const resolved = await searchParams;
-  const lang = getLang(resolved);
+export async function generateMetadata({ params }: Props) {
+  const { lang, slug } = await params;
+  if (lang !== "zh" && lang !== "en") return {};
   const article = getArticle(slug, lang);
   const siteName = getSiteName(lang);
   if (!article) return { title: siteName };
   const title = article.title[lang] || article.title.zh;
   const description = article.description[lang] || article.description.zh;
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com"}/blog/${slug}?lang=${lang}`;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com";
+  const path = lang === "zh" ? `/zh/blog/${slug}` : `/en/blog/${slug}`;
+  const url = `${siteUrl}${path}`;
   const ogImage = article.videoId
     ? `https://img.youtube.com/vi/${article.videoId}/maxresdefault.jpg`
     : `${siteUrl}/icons/video-digest-1200x630.jpg`;
@@ -60,22 +59,23 @@ export async function generateMetadata({ params, searchParams }: Props) {
   };
 }
 
-export default async function BlogSlugPage({ params, searchParams }: Props) {
-  const { slug } = await params;
-  const resolved = await searchParams;
-  const lang = getLang(resolved);
+export default async function BlogSlugPage({ params }: Props) {
+  const { lang, slug } = await params;
+  if (lang !== "zh" && lang !== "en") notFound();
   const article = getArticle(slug, lang);
   if (!article) notFound();
 
   const title = article.title[lang] || article.title.zh;
   const description = article.description[lang] || article.description.zh;
+  const homeHref = lang === "zh" ? "/zh" : "/en";
+  const blogHref = lang === "zh" ? "/zh/blog" : "/en/blog";
 
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-950">
       <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/95 px-4 py-4 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 sm:px-6">
         <div className="mx-auto flex max-w-[42rem] items-center justify-between gap-3">
           <Link
-            href={lang === "zh" ? "/" : "/?lang=en"}
+            href={homeHref}
             className="flex shrink-0 items-center gap-1.5 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             aria-label={lang === "zh" ? "回到主頁" : "Back to home"}
           >
@@ -84,12 +84,12 @@ export default async function BlogSlugPage({ params, searchParams }: Props) {
             </svg>
           </Link>
           <Link
-            href={lang === "zh" ? "/blog" : "/blog?lang=en"}
+            href={blogHref}
             className="min-w-0 flex-1 text-lg font-semibold text-neutral-900 dark:text-neutral-100 truncate"
           >
             {getSiteName(lang)}
           </Link>
-          <LanguageSwitch />
+          <LanguageSwitch currentLang={lang} pathSuffix={`/blog/${slug}`} />
         </div>
       </header>
       <ArticleLayout

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getArticles } from "@/lib/getArticles";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import {
@@ -10,22 +11,22 @@ import {
 import type { Locale } from "@/lib/types";
 
 type Props = {
-  searchParams: Promise<{ lang?: string }>;
+  params: Promise<{ lang: string }>;
 };
 
-function getLang(searchParams: { lang?: string }): Locale {
-  const lang = searchParams?.lang;
-  return lang === "en" ? "en" : "zh";
+export async function generateStaticParams() {
+  return [{ lang: "zh" }, { lang: "en" }];
 }
 
-export async function generateMetadata({ searchParams }: Props) {
-  const resolved = await searchParams;
-  const lang = getLang(resolved);
+export async function generateMetadata({ params }: Props) {
+  const { lang } = await params;
+  if (lang !== "zh" && lang !== "en") return {};
   const siteName = getSiteName(lang);
   const listTitle = lang === "zh" ? "文章列表" : "Articles";
   const description = lang === "zh" ? META_DESCRIPTION_ZH : META_DESCRIPTION_EN;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com";
-  const url = `${siteUrl}/blog${lang === "zh" ? "" : "?lang=en"}`;
+  const path = lang === "zh" ? "/zh/blog" : "/en/blog";
+  const url = `${siteUrl}${path}`;
   const ogImage = `${siteUrl}/icons/video-digest-1200x630.jpg`;
   return {
     title: `${listTitle} | ${siteName}`,
@@ -45,11 +46,12 @@ export async function generateMetadata({ searchParams }: Props) {
   };
 }
 
-export default async function BlogPage({ searchParams }: Props) {
-  const resolved = await searchParams;
-  const lang = getLang(resolved);
+export default async function BlogPage({ params }: Props) {
+  const { lang } = await params;
+  if (lang !== "zh" && lang !== "en") notFound();
   const articles = getArticles(lang);
   const siteName = getSiteName(lang);
+  const homeHref = lang === "zh" ? "/zh" : "/en";
 
   return (
     <main className="min-h-screen bg-white px-4 py-8 dark:bg-neutral-950 sm:px-6">
@@ -57,7 +59,7 @@ export default async function BlogPage({ searchParams }: Props) {
         <header className="mb-8 flex items-start justify-between">
           <div>
             <Link
-              href="/"
+              href={homeHref}
               className="text-xl font-bold text-neutral-900 dark:text-neutral-100"
             >
               {siteName}
@@ -66,7 +68,7 @@ export default async function BlogPage({ searchParams }: Props) {
               {getSubtitle(lang)}
             </p>
           </div>
-          <LanguageSwitch />
+          <LanguageSwitch currentLang={lang} pathSuffix="/blog" />
         </header>
         <h1 className="mb-6 text-2xl font-bold text-neutral-900 dark:text-neutral-100">
           {lang === "zh" ? "文章列表" : "Articles"}
@@ -80,7 +82,7 @@ export default async function BlogPage({ searchParams }: Props) {
             articles.map((a) => (
               <li key={a.slug}>
                 <Link
-                  href={`/blog/${a.slug}?lang=${lang}`}
+                  href={lang === "zh" ? `/zh/blog/${a.slug}` : `/en/blog/${a.slug}`}
                   className="flex gap-4 rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 transition hover:border-neutral-300 hover:bg-neutral-100/80 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-neutral-700 dark:hover:bg-neutral-800/80"
                 >
                   <div className="relative h-20 w-[142px] shrink-0 overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">

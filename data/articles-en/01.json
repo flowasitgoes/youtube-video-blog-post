@@ -8,7 +8,6 @@
     "zh": "",
     "en": "Mitchell Hashimoto is the co-founder of HashiCorp and the creator of well-known open-source tools such as Terraform, Vagrant, and Vault. His tools have fundamentally changed how modern cloud infrastructure is managed. In this interview, he reflects on his programming journey, the birth of HashiCorp, and how open source, cloud computing, and AI are shaping the future of software engineering.\n\nThis article follows the structure of the interview and walks through Mitchell’s experiences and insights."
   },
-  "tags": ["HashiCorp", "Terraform", "Open source", "Startup", "Cloud", "Infrastructure"],
   "sections": [
     {
       "title": {
