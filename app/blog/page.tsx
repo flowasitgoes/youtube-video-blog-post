@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { getArticles } from "@/lib/getArticles";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import { getSiteName, getSubtitle } from "@/lib/site";
 import type { Locale } from "@/lib/types";
-
-const SITE_NAME = "YouTube 摘要博客";
 
 type Props = {
   searchParams: Promise<{ lang?: string }>;
@@ -18,17 +17,23 @@ export default async function BlogPage({ searchParams }: Props) {
   const resolved = await searchParams;
   const lang = getLang(resolved);
   const articles = getArticles(lang);
+  const siteName = getSiteName(lang);
 
   return (
     <main className="min-h-screen bg-white px-4 py-8 dark:bg-neutral-950 sm:px-6">
       <div className="mx-auto max-w-[42rem]">
-        <header className="mb-8 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-xl font-bold text-neutral-900 dark:text-neutral-100"
-          >
-            {SITE_NAME}
-          </Link>
+        <header className="mb-8 flex items-start justify-between">
+          <div>
+            <Link
+              href="/"
+              className="text-xl font-bold text-neutral-900 dark:text-neutral-100"
+            >
+              {siteName}
+            </Link>
+            <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+              {getSubtitle(lang)}
+            </p>
+          </div>
           <LanguageSwitch />
         </header>
         <h1 className="mb-6 text-2xl font-bold text-neutral-900 dark:text-neutral-100">

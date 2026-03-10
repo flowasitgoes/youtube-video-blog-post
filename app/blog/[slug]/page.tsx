@@ -5,9 +5,8 @@ import { getArticles } from "@/lib/getArticles";
 import ArticleLayout from "@/components/ArticleLayout";
 import SectionBlock from "@/components/SectionBlock";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import { getSiteName } from "@/lib/site";
 import type { Locale } from "@/lib/types";
-
-const SITE_NAME = "YouTube 摘要博客";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -31,15 +30,16 @@ export async function generateMetadata({ params, searchParams }: Props) {
   const resolved = await searchParams;
   const lang = getLang(resolved);
   const article = getArticle(slug, lang);
-  if (!article) return { title: SITE_NAME };
+  const siteName = getSiteName(lang);
+  if (!article) return { title: siteName };
   const title = article.title[lang] || article.title.zh;
   const description = article.description[lang] || article.description.zh;
   const url = `https://yoursite.com/blog/${slug}?lang=${lang}`;
   return {
-    title: `${title} | ${SITE_NAME}`,
+    title: `${title} | ${siteName}`,
     description,
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: `${title} | ${siteName}`,
       description,
       url,
     },
@@ -64,7 +64,7 @@ export default async function BlogSlugPage({ params, searchParams }: Props) {
             href="/blog"
             className="text-lg font-semibold text-neutral-900 dark:text-neutral-100"
           >
-            {SITE_NAME}
+            {getSiteName(lang)}
           </Link>
           <LanguageSwitch />
         </div>
