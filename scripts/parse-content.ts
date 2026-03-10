@@ -13,7 +13,9 @@ type YouTubeMeta = {
 };
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+const CONTENT_EN_DIR = path.join(process.cwd(), "content", "En");
 const OUTPUT_DIR = path.join(process.cwd(), "data", "articles");
+const OUTPUT_EN_DIR = path.join(process.cwd(), "data", "articles-en");
 
 function slugFromFilename(filename: string): string {
   const base = path.basename(filename, ".txt");
@@ -26,6 +28,9 @@ function slugFromFilename(filename: string): string {
 function ensureOutputDir(): void {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
+  if (!fs.existsSync(OUTPUT_EN_DIR)) {
+    fs.mkdirSync(OUTPUT_EN_DIR, { recursive: true });
   }
 }
 
@@ -384,16 +389,29 @@ async function main(): Promise<void> {
     process.exit(1);
   }
   ensureOutputDir();
+
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".txt"));
   if (files.length === 0) {
     console.log("No .txt files found in", CONTENT_DIR);
     return;
   }
+
+  const enFiles = fs.existsSync(CONTENT_EN_DIR)
+    ? fs.readdirSync(CONTENT_EN_DIR).filter((f) => f.endsWith(".txt"))
+    : [];
+
   for (const file of files) {
     const fullPath = path.join(CONTENT_DIR, file);
     const stat = fs.statSync(fullPath);
     let article = parseFile(fullPath);
     article = { ...article, addedAt: stat.mtime.toISOString().slice(0, 10) };
+    article.title.en = "";
+    article.description.en = "";
+    for (const sec of article.sections) {
+      sec.title.en = "";
+      sec.content.en = "";
+    }
+
     const txtMeta: Partial<YouTubeMeta> = {};
     if (article.channelSubscriberCount) txtMeta.channelSubscriberCount = article.channelSubscriberCount;
     if (article.likeCount) txtMeta.likeCount = article.likeCount;
@@ -409,7 +427,35 @@ async function main(): Promise<void> {
     fs.writeFileSync(outPath, JSON.stringify(article, null, 2), "utf-8");
     console.log("Wrote", outPath);
   }
-  console.log(`Parsed ${files.length} file(s).`);
+
+  for (const file of enFiles) {
+    const fullPath = path.join(CONTENT_EN_DIR, file);
+    const stat = fs.statSync(fullPath);
+    let article = parseFile(fullPath);
+    article = { ...article, addedAt: stat.mtime.toISOString().slice(0, 10) };
+    article.title.zh = "";
+    article.description.zh = "";
+    for (const sec of article.sections) {
+      sec.title.zh = "";
+      sec.content.zh = "";
+    }
+    const txtMeta: Partial<YouTubeMeta> = {};
+    if (article.channelSubscriberCount) txtMeta.channelSubscriberCount = article.channelSubscriberCount;
+    if (article.likeCount) txtMeta.likeCount = article.likeCount;
+    if (article.viewCount) txtMeta.viewCount = article.viewCount;
+    if (article.publishedAt) txtMeta.publishedAt = article.publishedAt;
+    if (article.videoId) {
+      process.stdout.write(`Fetching YouTube meta for ${article.slug} (EN, ${article.videoId})... `);
+      const meta = await fetchYouTubeMeta(article.videoId);
+      article = { ...article, ...meta, ...txtMeta };
+      console.log(meta.videoTitle || Object.keys(txtMeta).length ? "OK" : "no data");
+    }
+    const outPath = path.join(OUTPUT_EN_DIR, `${article.slug}.json`);
+    fs.writeFileSync(outPath, JSON.stringify(article, null, 2), "utf-8");
+    console.log("Wrote", outPath);
+  }
+
+  console.log(`Parsed ${files.length} ZH + ${enFiles.length} EN file(s).`);
 }
 
 main().catch((e) => {

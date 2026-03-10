@@ -20,15 +20,17 @@ function getLang(searchParams: { lang?: string }): Locale {
 }
 
 export async function generateStaticParams() {
-  const articles = getArticles();
-  return articles.map((a) => ({ slug: a.slug }));
+  const zhArticles = getArticles("zh");
+  const enArticles = getArticles("en");
+  const slugs = new Set([...zhArticles.map((a) => a.slug), ...enArticles.map((a) => a.slug)]);
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params, searchParams }: Props) {
   const { slug } = await params;
   const resolved = await searchParams;
   const lang = getLang(resolved);
-  const article = getArticle(slug);
+  const article = getArticle(slug, lang);
   if (!article) return { title: SITE_NAME };
   const title = article.title[lang] || article.title.zh;
   const description = article.description[lang] || article.description.zh;
@@ -48,7 +50,7 @@ export default async function BlogSlugPage({ params, searchParams }: Props) {
   const { slug } = await params;
   const resolved = await searchParams;
   const lang = getLang(resolved);
-  const article = getArticle(slug);
+  const article = getArticle(slug, lang);
   if (!article) notFound();
 
   const title = article.title[lang] || article.title.zh;
@@ -71,6 +73,7 @@ export default async function BlogSlugPage({ params, searchParams }: Props) {
         title={title}
         description={description}
         videoId={article.videoId}
+        lang={lang}
         videoMeta={
           article.videoTitle ||
           article.channelTitle ||

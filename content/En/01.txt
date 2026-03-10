@@ -1,0 +1,470 @@
+VIDEO_ID: WjckELpzLOU
+CHANNEL_SUBSCRIBERS: 462K
+VIDEO_LIKES: 3.2K
+VIEWS: 209K
+PUBLISHED: 12 days ago
+
+Mitchell Hashimoto’s New Way of Writing Code
+From a Self-Taught Programmer to the Founder of HashiCorp: A Journey That Changed Cloud Infrastructure
+
+Mitchell Hashimoto is the co-founder of HashiCorp and the creator of well-known open-source tools such as Terraform, Vagrant, and Vault. His tools have fundamentally changed how modern cloud infrastructure is managed. In this interview, he reflects on his programming journey, the birth of HashiCorp, and how open source, cloud computing, and AI are shaping the future of software engineering.
+
+This article follows the structure of the interview and walks through Mitchell’s experiences and insights.
+
+1. The Beginning: A 12-Year-Old Teaching Himself Programming
+
+Mitchell’s programming journey started very early.
+
+He began teaching himself programming at around 12 or 13 years old. Like many programmers, his initial motivation was video games.
+
+But very quickly he discovered that he preferred web development. At that time the internet was still very young—Google didn’t even exist yet. He started learning:
+
+PHP
+
+Perl
+
+Basic web development
+
+Because he was young and didn’t have money to buy books, he mainly learned by studying open-source code online.
+
+One story from that time is particularly memorable.
+
+He printed out the first few chapters of the PHP manual (around 30–40 pages) and read them repeatedly while walking to school every day. One day, he suddenly realized that the $ symbol in PHP represented variables.
+
+That moment became a turning point.
+
+Once he understood variables, his learning speed accelerated dramatically, and he was finally able to write real programs.
+
+2. Teenage Years: Freelancing, Copying Websites, and Earning His First Money
+
+By the time he was in high school, Mitchell was already coding every day.
+
+He built many things, including:
+
+Gaming websites
+
+Online forums
+
+Clones of existing web features
+
+Even experiments replicating parts of PayPal’s payment system
+
+He also did something bold:
+
+He pretended to be 18 years old on freelancing websites to take on jobs.
+
+Some of the projects he worked on included:
+
+Image upload systems
+
+Small websites
+
+Each project might only pay $50 or $100, but it allowed him to start earning money with programming.
+
+3. Programming Was a Lonely Path
+
+Back then, being interested in computers was not considered cool.
+
+Mitchell once said:
+
+If you liked computers back then, it was basically social suicide.
+
+Because of this:
+
+He never talked about programming at school
+
+It was almost like a secret life
+
+However, he found a community online through:
+
+MSN Messenger
+
+AOL Messenger
+
+Various forums
+
+Many of those online friends eventually became long-term friendships.
+
+4. His First Real Job: Ruby on Rails
+
+While studying at the University of Washington, he received an email that changed his life.
+
+Someone asked him:
+
+“Would you like to become a Ruby on Rails engineer?”
+
+At the time, he only knew PHP and had no experience with Ruby.
+
+But he still accepted the job.
+
+The company was a Rails consulting firm that specialized in building MVPs for clients.
+
+During that time he worked on projects such as:
+
+YouTube-style websites
+
+E-commerce platforms
+
+Charity platforms
+
+This experience exposed him to many different technologies and product ideas very quickly.
+
+5. A Strange Mentor Who Changed His Direction
+
+At that company there was a very mysterious engineer.
+
+His characteristics:
+
+Long hair
+
+Never used a mouse
+
+Worked entirely in Linux
+
+Sat quietly in a corner
+
+Mitchell became very curious about him.
+
+One day, that engineer did something unusual:
+
+He unplugged Mitchell’s mouse.
+
+Then he said:
+
+“You’re not allowed to use a mouse anymore.”
+
+Mitchell spent a week learning how to operate his computer entirely with the keyboard.
+
+After that he began learning tools such as:
+
+Terminal
+
+Screen
+
+SSH
+
+Linux package managers
+
+This was the moment he started entering the world of infrastructure engineering.
+
+6. A Failed University Research Project
+
+During college he joined a research project called the Seattle Project.
+
+The goal was to build something similar to:
+
+Folding@Home
+
+A distributed computing network
+
+The idea was that computers around the world could contribute computing power.
+
+Mitchell’s responsibility was to build the node management and infrastructure system.
+
+But he completely failed.
+
+However, that failure became extremely important.
+
+In his notebook he wrote down the reasons he couldn’t complete the project:
+
+He couldn’t manage resources declaratively
+
+He couldn’t build private networks easily
+
+He couldn’t manage distributed nodes
+
+These problems later became the product blueprint for HashiCorp.
+
+7. An Email That Started a Company
+
+His research supervisor, Arman, read that notebook.
+
+A few weeks later he sent Mitchell an email:
+
+“Do you want to start a company together?”
+
+Mitchell replied within two minutes:
+
+“Yes.”
+
+And that was the beginning of HashiCorp.
+
+8. The First Successful Product: Vagrant
+
+While working at the consulting company, Mitchell noticed a recurring problem.
+
+Every project required a different development environment.
+
+Setting up a development environment could take half a day.
+
+So he built a tool called Vagrant.
+
+The goal was simple:
+
+“Double-click and your development environment is ready.”
+
+It was built using:
+
+VirtualBox
+
+Virtual machines
+
+This solved the problem of non-reproducible development environments.
+
+9. The Arrival of the Cloud Era
+
+Around 2010, AWS had just been introduced.
+
+At the time:
+
+EC2 was very unstable
+
+There were very few services
+
+Only S3 was considered reliable
+
+But Mitchell felt something important:
+
+This is the future.
+
+Not because of market analysis, but because it simply felt like a better way to build systems.
+
+10. The HashiCorp Product Ecosystem
+
+Over time HashiCorp launched a series of tools.
+
+Vagrant
+
+Development environment management.
+
+Packer
+
+Machine image building.
+
+Consul
+
+Service discovery.
+
+Terraform
+
+Infrastructure as Code.
+
+Instead of manually configuring infrastructure, you could write something like:
+
+This text describes an entire AWS infrastructure
+
+After executing it, Terraform could automatically create:
+
+VPC
+
+Subnets
+
+Instances
+
+Gateways
+
+And it could also destroy everything with a single command.
+
+Vault
+
+Secrets management, such as:
+
+Passwords
+
+API keys
+
+Credit card data
+
+Personally identifiable information
+
+Nomad
+
+A job scheduler that automatically deploys applications across multiple machines.
+
+11. The Struggle With Business Models
+
+At the beginning, HashiCorp had no business model at all.
+
+For the first four years:
+
+They made almost no revenue
+
+Everything was open source
+
+Investors still supported them because they saw strong signals:
+
+GitHub stars
+
+Download numbers
+
+Developer adoption
+
+These metrics suggested product-market fit.
+
+12. The First Failed Business Model
+
+Their first commercial product was called Atlas.
+
+But it failed.
+
+The reason was that Atlas required companies to adopt all HashiCorp tools together.
+
+Most companies didn’t want that.
+
+There was also another problem.
+
+Inside companies, nobody knew which department should pay.
+
+For example:
+
+Security teams
+
+Networking teams
+
+Infrastructure teams
+
+Everyone kept passing the responsibility to someone else.
+
+13. The Turning Point: Open Core
+
+After a board meeting, the founders realized their strategy was wrong.
+
+They decided to start over.
+
+The new model was Open Core.
+
+The core product remained open source
+
+Enterprise features were closed source
+
+In addition, each product became its own commercial offering.
+
+The first successful enterprise product was Vault Enterprise.
+
+Companies needed features such as:
+
+Secrets replication
+
+High availability
+
+Enterprise support
+
+This finally created a real revenue stream.
+
+14. Why Terraform Became So Popular
+
+Many people assume Terraform succeeded because it was first to market.
+
+Mitchell says that’s not true.
+
+Terraform was actually the seventh product in that space.
+
+The real reason was relentless developer outreach.
+
+He constantly:
+
+Gave talks at conferences
+
+Traveled around the world
+
+Spoke directly with developers
+
+At one point he traveled once every eight days for nine years.
+
+He even coded on airplanes:
+
+Downloading GitHub issues
+
+Breaking them into 15-minute tasks
+
+Solving them during flights
+
+After landing he would push dozens of commits at once.
+
+15. VMware Almost Acquired HashiCorp
+
+Two years after founding the company, VMware attempted to acquire them.
+
+The initial offer was $20 million.
+
+Mitchell and Arman were only 23 years old.
+
+It was a huge amount of money.
+
+But they realized that if they sold the company, their dream might disappear.
+
+So they counter-offered:
+
+$100 million.
+
+VMware’s board voted on it.
+
+The deal failed by one vote.
+
+If that vote had passed, Terraform might never have existed.
+
+16. HashiCorp Goes Public
+
+HashiCorp eventually went public in 2021.
+
+Preparing for an IPO required:
+
+More than a year of preparation
+
+Practicing earnings calls
+
+Extremely strict legal confidentiality
+
+Even Mitchell’s parents didn’t know the company was about to go public.
+
+17. His View on Cloud Giants
+
+Mitchell mentioned that AWS sometimes felt arrogant.
+
+There was a sense that:
+
+“We could build a product tomorrow that destroys your company.”
+
+But he also acknowledged something important.
+
+AWS employs some of the best engineers in the world.
+
+18. The Impact of AI on Open Source
+
+Mitchell raised an interesting point about AI.
+
+AI could potentially change how open-source communities function.
+
+For example, AI systems can:
+
+Automatically generate pull requests
+
+Produce code that looks correct but may be wrong
+
+Open source traditionally relies on trust.
+
+In the future it might shift toward a default-deny model, where contributors must establish trust first.
+
+Conclusion
+
+Mitchell Hashimoto’s story represents a classic but highly influential technology entrepreneurship journey:
+
+Self-taught programming
+
+Discovering real infrastructure problems
+
+Building open-source tools
+
+Finding a sustainable business model
+
+Transforming an entire industry
+
+HashiCorp’s success did not come from being first.
+
+It came from deeply focusing on real problems over a long period of time.
+
+As Mitchell once said:
+
+Great engineers don’t just write code — they understand systems and constraints.
+
+And that mindset lies at the heart of modern software engineering.

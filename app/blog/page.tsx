@@ -17,7 +17,7 @@ function getLang(searchParams: { lang?: string }): Locale {
 export default async function BlogPage({ searchParams }: Props) {
   const resolved = await searchParams;
   const lang = getLang(resolved);
-  const articles = getArticles();
+  const articles = getArticles(lang);
 
   return (
     <main className="min-h-screen bg-white px-4 py-8 dark:bg-neutral-950 sm:px-6">

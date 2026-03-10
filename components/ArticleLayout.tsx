@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { Locale } from "@/lib/types";
 
 export type VideoMeta = {
   videoTitle?: string;
@@ -16,6 +17,7 @@ type ArticleLayoutProps = {
   description?: string;
   videoId?: string;
   videoMeta?: VideoMeta;
+  lang?: Locale;
 };
 
 function formatCount(n: string): string {
@@ -27,11 +29,12 @@ function formatCount(n: string): string {
   return num.toLocaleString();
 }
 
-function formatPublishedAt(publishedAt: string): string {
-  if (/^\d{4}-\d{2}/.test(publishedAt.trim())) {
+function formatPublishedAt(publishedAt: string, lang: Locale): string {
+  const raw = publishedAt.trim();
+  if (/^\d{4}-\d{2}/.test(raw)) {
     try {
       const d = new Date(publishedAt);
-      return d.toLocaleDateString("zh-TW", {
+      return d.toLocaleDateString(lang === "zh" ? "zh-TW" : "en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -39,6 +42,16 @@ function formatPublishedAt(publishedAt: string): string {
     } catch {
       return publishedAt;
     }
+  }
+  if (lang === "zh") {
+    const days = raw.match(/^(\d+)\s*days?\s*ago$/i);
+    if (days) return `${days[1]} 天前`;
+    const weeks = raw.match(/^(\d+)\s*weeks?\s*ago$/i);
+    if (weeks) return `${weeks[1]} 週前`;
+    const months = raw.match(/^(\d+)\s*months?\s*ago$/i);
+    if (months) return `${months[1]} 個月前`;
+    const years = raw.match(/^(\d+)\s*years?\s*ago$/i);
+    if (years) return `${years[1]} 年前`;
   }
   return publishedAt;
 }
@@ -49,6 +62,7 @@ export default function ArticleLayout({
   description,
   videoId,
   videoMeta,
+  lang = "zh",
 }: ArticleLayoutProps) {
   const hasMeta =
     videoMeta &&
@@ -95,7 +109,7 @@ export default function ArticleLayout({
                     )}
                     {videoMeta.channelSubscriberCount != null && videoMeta.channelSubscriberCount !== "" && (
                       <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                        {formatCount(videoMeta.channelSubscriberCount)} 位訂閱者
+                        {formatCount(videoMeta.channelSubscriberCount)} {lang === "zh" ? "位訂閱者" : "subscribers"}
                       </p>
                     )}
                   </div>
@@ -114,7 +128,7 @@ export default function ArticleLayout({
                     className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-600"
                   >
                     <span aria-hidden>↗</span>
-                    分享
+                    {lang === "zh" ? "分享" : "Share"}
                   </a>
                 </div>
               </div>
@@ -122,10 +136,14 @@ export default function ArticleLayout({
               <div className="mt-3 rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
                 <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5 text-sm text-neutral-700 dark:text-neutral-300">
                   {(videoMeta.viewCount != null && videoMeta.viewCount !== "") && (
-                    <span>觀看次數：{formatCount(videoMeta.viewCount)} 次</span>
+                    <span>
+                      {lang === "zh" ? "觀看次數：" : "Views: "}
+                      {formatCount(videoMeta.viewCount)}
+                      {lang === "zh" ? " 次" : " times"}
+                    </span>
                   )}
                   {videoMeta.publishedAt && (
-                    <span className="ml-auto">{formatPublishedAt(videoMeta.publishedAt)}</span>
+                    <span className="ml-auto">{formatPublishedAt(videoMeta.publishedAt, lang)}</span>
                   )}
                 </div>
                 {videoMeta.videoDescription && (

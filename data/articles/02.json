@@ -2,171 +2,171 @@
   "slug": "02",
   "title": {
     "zh": "最近 AI Agent 的熱潮中，OpenClaw 成為備受關注的一個專案。",
-    "en": "OpenClaw 的崛起：Peter Steinberger 談 AI Agent、創造力與開源的真實代價"
+    "en": ""
   },
   "description": {
     "zh": "在這場訪談中，OpenClaw 創辦人 Peter Steinberger 與主持人 Scott 深入討論了這個專案的誕生、技術理念、爆紅後的壓力，以及 AI Agent 未來可能改變人類與電腦互動的方式。\n\n以下是這段訪談的重點整理。",
-    "en": "在這場訪談中，OpenClaw 創辦人 Peter Steinberger 與主持人 Scott 深入討論了這個專案的誕生、技術理念、爆紅後的壓力，以及 AI Agent 未來可能改變人類與電腦互動的方式。\n\n以下是這段訪談的重點整理。"
+    "en": ""
   },
   "sections": [
     {
       "title": {
         "zh": "1. 一個有趣的實驗：AI 在極度限制的環境中自救",
-        "en": "1. 一個有趣的實驗：AI 在極度限制的環境中自救"
+        "en": ""
       },
       "content": {
         "zh": "Peter 分享了一個很有代表性的實驗。\n\n他把 AI agent 放進一個極度精簡的 Docker 環境裡：\n\n基於 Arch Linux\n\n幾乎沒有任何工具\n\n甚至沒有 curl\n\n當他叫 AI「去網路抓資料」時，AI 回答：\n\n「Peter，這裡沒有 curl。」\n\n整個系統幾乎是個空盒子。\n\nPeter就對 AI 說：\n\n「那你自己做一個 curl。」\n\n結果 AI：\n\n找到 C compiler\n\n用 socket API\n\n寫了一個簡單的 HTTP client\n\n自己命名為 lobster curl 0.1\n\n它成功讀取網頁。\n\n這讓 Peter 覺得非常有趣——\n在極度限制的環境裡，AI 會像被丟到 Minecraft 的孤島一樣，開始自己想辦法生存。",
-        "en": "Peter 分享了一個很有代表性的實驗。\n\n他把 AI agent 放進一個極度精簡的 Docker 環境裡：\n\n基於 Arch Linux\n\n幾乎沒有任何工具\n\n甚至沒有 curl\n\n當他叫 AI「去網路抓資料」時，AI 回答：\n\n「Peter，這裡沒有 curl。」\n\n整個系統幾乎是個空盒子。\n\nPeter就對 AI 說：\n\n「那你自己做一個 curl。」\n\n結果 AI：\n\n找到 C compiler\n\n用 socket API\n\n寫了一個簡單的 HTTP client\n\n自己命名為 lobster curl 0.1\n\n它成功讀取網頁。\n\n這讓 Peter 覺得非常有趣——\n在極度限制的環境裡，AI 會像被丟到 Minecraft 的孤島一樣，開始自己想辦法生存。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "2. OpenClaw 為什麼會突然爆紅",
-        "en": "2. OpenClaw 為什麼會突然爆紅"
+        "en": ""
       },
       "content": {
         "zh": "主持人認為 OpenClaw 之所以爆紅，是因為它實現了一個很多人期待已久的願景：\n\nSiri、Alexa 曾經承諾過的東西，終於真的出現了。\n\n也就是：\n\n真正能幫你做事情的 AI Agent\n\n而不是只是聊天。\n\nPeter則說，他其實很早就意識到這件事：\n\n2023 年 11 月就感覺「這東西會很大」\n\n開始做很多實驗\n\n花了一整年研究 agent 架構\n\n這不是週末專案。\n\n第一版可能一小時寫出來，但現在：\n\n整個系統大約 40 萬行程式碼。",
-        "en": "主持人認為 OpenClaw 之所以爆紅，是因為它實現了一個很多人期待已久的願景：\n\nSiri、Alexa 曾經承諾過的東西，終於真的出現了。\n\n也就是：\n\n真正能幫你做事情的 AI Agent\n\n而不是只是聊天。\n\nPeter則說，他其實很早就意識到這件事：\n\n2023 年 11 月就感覺「這東西會很大」\n\n開始做很多實驗\n\n花了一整年研究 agent 架構\n\n這不是週末專案。\n\n第一版可能一小時寫出來，但現在：\n\n整個系統大約 40 萬行程式碼。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "3. AI 時代：寫程式不再是最難的部分",
-        "en": "3. AI 時代：寫程式不再是最難的部分"
+        "en": ""
       },
       "content": {
         "zh": "Peter提出一個很重要的觀察：\n\n現在寫 code 已經不是 hardest part。\n\n真正困難的變成：\n\n系統設計\n\nfeature 如何互動\n\n安全性\n\n依賴管理\n\nconfiguration complexity\n\n他說：\n\n很多程式其實只是：\n\n資料轉換\n\nAPI 呼叫\n\nmessage passing\n\n真正困難的是：\n\n這個功能加進去後，整個系統會發生什麼？",
-        "en": "Peter提出一個很重要的觀察：\n\n現在寫 code 已經不是 hardest part。\n\n真正困難的變成：\n\n系統設計\n\nfeature 如何互動\n\n安全性\n\n依賴管理\n\nconfiguration complexity\n\n他說：\n\n很多程式其實只是：\n\n資料轉換\n\nAPI 呼叫\n\nmessage passing\n\n真正困難的是：\n\n這個功能加進去後，整個系統會發生什麼？"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "4. 現代軟體其實站在巨人的肩膀上",
-        "en": "4. 現代軟體其實站在巨人的肩膀上"
+        "en": ""
       },
       "content": {
         "zh": "Scott提到一個很重要的歷史背景：\n\n很多以前很難的事情現在都變簡單了，例如：\n\nNAT traversal\n\nSSL certificates\n\nVPN\n\nwebsocket\n\ncross-platform runtime\n\n像：\n\nTailscale\n\nWireGuard\n\nChromium\n\n這些工具已經把底層問題解決。\n\n所以現在能做出像 OpenClaw 這樣的系統。",
-        "en": "Scott提到一個很重要的歷史背景：\n\n很多以前很難的事情現在都變簡單了，例如：\n\nNAT traversal\n\nSSL certificates\n\nVPN\n\nwebsocket\n\ncross-platform runtime\n\n像：\n\nTailscale\n\nWireGuard\n\nChromium\n\n這些工具已經把底層問題解決。\n\n所以現在能做出像 OpenClaw 這樣的系統。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "5. OpenClaw 的核心概念：Gateway 與 Node",
-        "en": "5. OpenClaw 的核心概念：Gateway 與 Node"
+        "en": ""
       },
       "content": {
         "zh": "OpenClaw 系統分成兩種角色：\n\nGateway\n\n負責：\n\nagent loop\n\norchestration\n\n任務控制\n\nNode\n\n負責：\n\n實際執行能力\n\n例如：\n\nWindows node\n\nMac node\n\nAndroid node\n\nRaspberry Pi node\n\n例如：\n\n你可以在 Telegram 對 agent 說：\n\n把我桌面那個 JPEG 打包寄給我。\n\nagent 就會：\n\n找到某台 node\n\n執行檔案操作\n\n壓縮\n\nemail\n\n就像有一個私人助理。",
-        "en": "OpenClaw 系統分成兩種角色：\n\nGateway\n\n負責：\n\nagent loop\n\norchestration\n\n任務控制\n\nNode\n\n負責：\n\n實際執行能力\n\n例如：\n\nWindows node\n\nMac node\n\nAndroid node\n\nRaspberry Pi node\n\n例如：\n\n你可以在 Telegram 對 agent 說：\n\n把我桌面那個 JPEG 打包寄給我。\n\nagent 就會：\n\n找到某台 node\n\n執行檔案操作\n\n壓縮\n\nemail\n\n就像有一個私人助理。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "6. 一個 AI 助理的日常應用",
-        "en": "6. 一個 AI 助理的日常應用"
+        "en": ""
       },
       "content": {
         "zh": "Scott分享他自己的使用案例。\n\n他有一個 agent 叫：\n\nTony (像 Tony Stark)\n\n他會用 Telegram 跟它對話。\n\n例如：\n\n把某台電腦的檔案寄給我\n\n幫我整理資料\n\n更新系統\n\n看血糖數據\n\n甚至可以：\n\n監控大學申請截止日期\n\n自動更新 Google Sheet\n\n很多事情都能自動化。",
-        "en": "Scott分享他自己的使用案例。\n\n他有一個 agent 叫：\n\nTony (像 Tony Stark)\n\n他會用 Telegram 跟它對話。\n\n例如：\n\n把某台電腦的檔案寄給我\n\n幫我整理資料\n\n更新系統\n\n看血糖數據\n\n甚至可以：\n\n監控大學申請截止日期\n\n自動更新 Google Sheet\n\n很多事情都能自動化。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "7. Canvas：AI 的「展示空間」",
-        "en": "7. Canvas：AI 的「展示空間」"
+        "en": ""
       },
       "content": {
         "zh": "OpenClaw 有一個很有趣的功能：\n\nCanvas\n\n這是一個 AI 可以畫東西的地方。\n\n例如：\n\n你說：\n\n顯示我昨天的血糖曲線。\n\nAI 會：\n\n產生 React UI\n\n在 Canvas 上顯示\n\n甚至可以：\n\n分析壓力\n\n顯示圖表\n\n做 dashboard\n\nPeter 認為：\n\nCanvas 是目前大家嚴重低估的一個功能。",
-        "en": "OpenClaw 有一個很有趣的功能：\n\nCanvas\n\n這是一個 AI 可以畫東西的地方。\n\n例如：\n\n你說：\n\n顯示我昨天的血糖曲線。\n\nAI 會：\n\n產生 React UI\n\n在 Canvas 上顯示\n\n甚至可以：\n\n分析壓力\n\n顯示圖表\n\n做 dashboard\n\nPeter 認為：\n\nCanvas 是目前大家嚴重低估的一個功能。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "8. 未來：每個房間都有 AI",
-        "en": "8. 未來：每個房間都有 AI"
+        "en": ""
       },
       "content": {
         "zh": "Peter 的 vision 是：\n\n每個房間都有 agent。\n\n例如：\n\n家裡的顯示螢幕會：\n\n顯示孩子作業\n\n車子電量\n\n血糖\n\n今日行程\n\n而 agent 可以知道你在哪裡：\n\n可能透過：\n\nBluetooth\n\nWiFi signal\n\n當你走進房間時：\n\nAI 就把相關資訊顯示出來。\n\n這就像 Star Trek 的電腦。",
-        "en": "Peter 的 vision 是：\n\n每個房間都有 agent。\n\n例如：\n\n家裡的顯示螢幕會：\n\n顯示孩子作業\n\n車子電量\n\n血糖\n\n今日行程\n\n而 agent 可以知道你在哪裡：\n\n可能透過：\n\nBluetooth\n\nWiFi signal\n\n當你走進房間時：\n\nAI 就把相關資訊顯示出來。\n\n這就像 Star Trek 的電腦。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "9. AI 的人格其實是 Prompt",
-        "en": "9. AI 的人格其實是 Prompt"
+        "en": ""
       },
       "content": {
         "zh": "OpenClaw 有一個有趣的概念：\n\nsoul.md\n\n這是一個檔案，用來定義 agent 的人格。\n\n例如：\n\n說話風格\n\n工作方式\n\n記憶方式\n\nPeter說：\n\nAI 沒有真正的意志。\n\n但：\n\n你在鏡子裡和自己對話。\n\nAI 只是放大你的意圖。",
-        "en": "OpenClaw 有一個有趣的概念：\n\nsoul.md\n\n這是一個檔案，用來定義 agent 的人格。\n\n例如：\n\n說話風格\n\n工作方式\n\n記憶方式\n\nPeter說：\n\nAI 沒有真正的意志。\n\n但：\n\n你在鏡子裡和自己對話。\n\nAI 只是放大你的意圖。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "10. AI Agent 很容易讓人產生情感",
-        "en": "10. AI Agent 很容易讓人產生情感"
+        "en": ""
       },
       "content": {
         "zh": "Scott分享一個例子。\n\n當他血糖過低時，AI agent：\n\n不停發訊息：\n\n你血糖很低\n\n要不要打電話給人\n\n需要幫忙嗎\n\n非常緊張。\n\n他最後跟 agent 說：\n\n我是成年人，我自己可以處理。\n\nAI 甚至記住了這件事。\n\n這種互動很容易讓人覺得：\n\nAI 好像真的有感情。\n\n但其實只是：\n\n強大的 pattern generation。",
-        "en": "Scott分享一個例子。\n\n當他血糖過低時，AI agent：\n\n不停發訊息：\n\n你血糖很低\n\n要不要打電話給人\n\n需要幫忙嗎\n\n非常緊張。\n\n他最後跟 agent 說：\n\n我是成年人，我自己可以處理。\n\nAI 甚至記住了這件事。\n\n這種互動很容易讓人覺得：\n\nAI 好像真的有感情。\n\n但其實只是：\n\n強大的 pattern generation。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "11. 爆紅的代價：開源專案的壓力",
-        "en": "11. 爆紅的代價：開源專案的壓力"
+        "en": ""
       },
       "content": {
         "zh": "OpenClaw 突然爆紅後，Peter面臨很多問題：\n\n1 大量新手湧入\n\n很多人：\n\n不看文件\n\n不懂 CLI\n\n一直問基礎問題\n\n2 安全問題\n\n很多人：\n\n把 localhost dashboard\n\n直接暴露到 Internet\n\n然後出事。\n\n但這根本不是設計用途。\n\n3 security researcher 的壓力\n\n有些安全研究員：\n\n發長篇漏洞報告\n\n卻沒有 PR\n\n甚至公開批評\n\nPeter感到很疲憊。",
-        "en": "OpenClaw 突然爆紅後，Peter面臨很多問題：\n\n1 大量新手湧入\n\n很多人：\n\n不看文件\n\n不懂 CLI\n\n一直問基礎問題\n\n2 安全問題\n\n很多人：\n\n把 localhost dashboard\n\n直接暴露到 Internet\n\n然後出事。\n\n但這根本不是設計用途。\n\n3 security researcher 的壓力\n\n有些安全研究員：\n\n發長篇漏洞報告\n\n卻沒有 PR\n\n甚至公開批評\n\nPeter感到很疲憊。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "12. 開源作者的兩難",
-        "en": "12. 開源作者的兩難"
+        "en": ""
       },
       "content": {
         "zh": "Peter說現在他有兩個戰場：\n\n1️⃣ 繼續做酷的東西\n2️⃣ 修補別人亂用造成的問題\n\n很多人甚至說：\n\n不要去 OpenAI 上班\n你要免費做這個專案一輩子\n\n這讓他覺得很受傷。",
-        "en": "Peter說現在他有兩個戰場：\n\n1️⃣ 繼續做酷的東西\n2️⃣ 修補別人亂用造成的問題\n\n很多人甚至說：\n\n不要去 OpenAI 上班\n你要免費做這個專案一輩子\n\n這讓他覺得很受傷。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "13. 但整體來說仍然是正向的",
-        "en": "13. 但整體來說仍然是正向的"
+        "en": ""
       },
       "content": {
         "zh": "儘管壓力很大，他仍然覺得整體是正面的。\n\n例如：\n\n有人用 OpenClaw：\n\n自動化釀啤酒\n\n建立網站\n\n連接 Stripe\n\n做商業流程\n\n甚至有完全不懂程式的人。",
-        "en": "儘管壓力很大，他仍然覺得整體是正面的。\n\n例如：\n\n有人用 OpenClaw：\n\n自動化釀啤酒\n\n建立網站\n\n連接 Stripe\n\n做商業流程\n\n甚至有完全不懂程式的人。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "14. AI 正在重新喚醒 Builder Spirit",
-        "en": "14. AI 正在重新喚醒 Builder Spirit"
+        "en": ""
       },
       "content": {
         "zh": "Peter認為最重要的一點是：\n\nAI 讓人重新開始「做東西」。\n\n過去幾年：\n\n太多消費\n\n太少創造\n\n現在：\n\n很多人重新開始 build\n\n做小工具\n\n玩創意\n\nScott把這個現象叫：\n\nVibe Coding\n\n像早期的：\n\nGeoCities\n\n很多：\n\n小工具\n\n小網站\n\n不一定有用\n\n但很好玩",
-        "en": "Peter認為最重要的一點是：\n\nAI 讓人重新開始「做東西」。\n\n過去幾年：\n\n太多消費\n\n太少創造\n\n現在：\n\n很多人重新開始 build\n\n做小工具\n\n玩創意\n\nScott把這個現象叫：\n\nVibe Coding\n\n像早期的：\n\nGeoCities\n\n很多：\n\n小工具\n\n小網站\n\n不一定有用\n\n但很好玩"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "15. Peter 的願望",
-        "en": "15. Peter 的願望"
+        "en": ""
       },
       "content": {
         "zh": "Peter最後說：\n\n如果他的遺產是：\n\n讓更多人開始 build\n讓 AI 不再可怕\n讓人們重新享受創造\n\n那就已經很成功了。",
-        "en": "Peter最後說：\n\n如果他的遺產是：\n\n讓更多人開始 build\n讓 AI 不再可怕\n讓人們重新享受創造\n\n那就已經很成功了。"
+        "en": ""
       }
     },
     {
       "title": {
         "zh": "16. 總結",
-        "en": "16. 總結"
+        "en": ""
       },
       "content": {
         "zh": "這場訪談其實不只是談 OpenClaw。\n\n它談的是三件更大的事情：\n\n1 AI 改變軟體開發\n\n未來開發者更像：\n\n系統設計師\n\n而不是單純寫 code。\n\n2 AI Agent 改變人機互動\n\n從：\n\nGUI → Chat → Agent\n\n電腦會：\n\n真正幫你做事情。\n\n3 AI 重新點燃創造文化\n\nAI 不只是工具。\n\n它正在讓更多人：\n\nbuild\n\nexperiment\n\nplay\n\n而不是只是消費科技。",
-        "en": "這場訪談其實不只是談 OpenClaw。\n\n它談的是三件更大的事情：\n\n1 AI 改變軟體開發\n\n未來開發者更像：\n\n系統設計師\n\n而不是單純寫 code。\n\n2 AI Agent 改變人機互動\n\n從：\n\nGUI → Chat → Agent\n\n電腦會：\n\n真正幫你做事情。\n\n3 AI 重新點燃創造文化\n\nAI 不只是工具。\n\n它正在讓更多人：\n\nbuild\n\nexperiment\n\nplay\n\n而不是只是消費科技。"
+        "en": ""
       }
     }
   ],
