@@ -34,8 +34,8 @@ export async function generateMetadata({ params, searchParams }: Props) {
   if (!article) return { title: siteName };
   const title = article.title[lang] || article.title.zh;
   const description = article.description[lang] || article.description.zh;
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com"}/blog/${slug}?lang=${lang}`;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com"}/blog/${slug}?lang=${lang}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com";
   const ogImage = article.videoId
     ? `https://img.youtube.com/vi/${article.videoId}/maxresdefault.jpg`
     : `${siteUrl}/icons/video-digest-1200x630.jpg`;

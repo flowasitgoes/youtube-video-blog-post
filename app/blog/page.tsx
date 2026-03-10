@@ -24,7 +24,7 @@ export async function generateMetadata({ searchParams }: Props) {
   const siteName = getSiteName(lang);
   const listTitle = lang === "zh" ? "文章列表" : "Articles";
   const description = lang === "zh" ? META_DESCRIPTION_ZH : META_DESCRIPTION_EN;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com";
   const url = `${siteUrl}/blog${lang === "zh" ? "" : "?lang=en"}`;
   const ogImage = `${siteUrl}/icons/video-digest-1200x630.jpg`;
   return {

@@ -8,7 +8,7 @@ import {
   KEYWORDS_EN,
 } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://summary.ifunlove.com";
 
 /** SEO 縮圖：FB/OG 需絕對 URL，用 metadataBase 會自動補，這裡顯式寫絕對路徑確保相容 */
 const OG_IMAGE = `${siteUrl}/icons/video-digest-1200x630.jpg`;
