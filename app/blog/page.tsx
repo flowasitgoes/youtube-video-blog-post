@@ -44,14 +44,34 @@ export default async function BlogPage({ searchParams }: Props) {
               <li key={a.slug}>
                 <Link
                   href={`/blog/${a.slug}?lang=${lang}`}
-                  className="block rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 transition hover:border-neutral-300 hover:bg-neutral-100/80 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-neutral-700 dark:hover:bg-neutral-800/80"
+                  className="flex gap-4 rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 transition hover:border-neutral-300 hover:bg-neutral-100/80 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-neutral-700 dark:hover:bg-neutral-800/80"
                 >
-                  <h2 className="font-semibold text-neutral-900 dark:text-neutral-100">
-                    {a.title[lang] || a.title.zh}
-                  </h2>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    {a.description[lang] || a.description.zh}
-                  </p>
+                  <div className="relative h-20 w-[142px] shrink-0 overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">
+                    {a.videoId ? (
+                      <img
+                        src={`https://img.youtube.com/vi/${a.videoId}/mqdefault.jpg`}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        width={320}
+                        height={180}
+                      />
+                    ) : (
+                      <div
+                        className="flex h-full w-full items-center justify-center text-2xl text-neutral-400 dark:text-neutral-500"
+                        aria-hidden
+                      >
+                        📄
+                      </div>
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="font-semibold text-neutral-900 dark:text-neutral-100">
+                      {a.title[lang] || a.title.zh}
+                    </h2>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                      {a.description[lang] || a.description.zh}
+                    </p>
+                  </div>
                 </Link>
               </li>
             ))

@@ -1,0 +1,489 @@
+VIDEO_ID: Wm7tsiJ1nIo
+CHANNEL_SUBSCRIBERS: 185K
+VIDEO_LIKES: 492
+VIEWS: 14K
+PUBLISHED: 12 days ago
+
+OpenClaw 的崛起：Peter Steinberger 談 AI Agent、創造力與開源的真實代價
+
+最近 AI Agent 的熱潮中，OpenClaw 成為備受關注的一個專案。
+在這場訪談中，OpenClaw 創辦人 Peter Steinberger 與主持人 Scott 深入討論了這個專案的誕生、技術理念、爆紅後的壓力，以及 AI Agent 未來可能改變人類與電腦互動的方式。
+
+以下是這段訪談的重點整理。
+
+1. 一個有趣的實驗：AI 在極度限制的環境中自救
+
+Peter 分享了一個很有代表性的實驗。
+
+他把 AI agent 放進一個極度精簡的 Docker 環境裡：
+
+基於 Arch Linux
+
+幾乎沒有任何工具
+
+甚至沒有 curl
+
+當他叫 AI「去網路抓資料」時，AI 回答：
+
+「Peter，這裡沒有 curl。」
+
+整個系統幾乎是個空盒子。
+
+Peter就對 AI 說：
+
+「那你自己做一個 curl。」
+
+結果 AI：
+
+找到 C compiler
+
+用 socket API
+
+寫了一個簡單的 HTTP client
+
+自己命名為 lobster curl 0.1
+
+它成功讀取網頁。
+
+這讓 Peter 覺得非常有趣——
+在極度限制的環境裡，AI 會像被丟到 Minecraft 的孤島一樣，開始自己想辦法生存。
+
+2. OpenClaw 為什麼會突然爆紅
+
+主持人認為 OpenClaw 之所以爆紅，是因為它實現了一個很多人期待已久的願景：
+
+Siri、Alexa 曾經承諾過的東西，終於真的出現了。
+
+也就是：
+
+真正能幫你做事情的 AI Agent
+
+而不是只是聊天。
+
+Peter則說，他其實很早就意識到這件事：
+
+2023 年 11 月就感覺「這東西會很大」
+
+開始做很多實驗
+
+花了一整年研究 agent 架構
+
+這不是週末專案。
+
+第一版可能一小時寫出來，但現在：
+
+整個系統大約 40 萬行程式碼。
+
+3. AI 時代：寫程式不再是最難的部分
+
+Peter提出一個很重要的觀察：
+
+現在寫 code 已經不是 hardest part。
+
+真正困難的變成：
+
+系統設計
+
+feature 如何互動
+
+安全性
+
+依賴管理
+
+configuration complexity
+
+他說：
+
+很多程式其實只是：
+
+資料轉換
+
+API 呼叫
+
+message passing
+
+真正困難的是：
+
+這個功能加進去後，整個系統會發生什麼？
+
+4. 現代軟體其實站在巨人的肩膀上
+
+Scott提到一個很重要的歷史背景：
+
+很多以前很難的事情現在都變簡單了，例如：
+
+NAT traversal
+
+SSL certificates
+
+VPN
+
+websocket
+
+cross-platform runtime
+
+像：
+
+Tailscale
+
+WireGuard
+
+Chromium
+
+這些工具已經把底層問題解決。
+
+所以現在能做出像 OpenClaw 這樣的系統。
+
+5. OpenClaw 的核心概念：Gateway 與 Node
+
+OpenClaw 系統分成兩種角色：
+
+Gateway
+
+負責：
+
+agent loop
+
+orchestration
+
+任務控制
+
+Node
+
+負責：
+
+實際執行能力
+
+例如：
+
+Windows node
+
+Mac node
+
+Android node
+
+Raspberry Pi node
+
+例如：
+
+你可以在 Telegram 對 agent 說：
+
+把我桌面那個 JPEG 打包寄給我。
+
+agent 就會：
+
+找到某台 node
+
+執行檔案操作
+
+壓縮
+
+email
+
+就像有一個私人助理。
+
+6. 一個 AI 助理的日常應用
+
+Scott分享他自己的使用案例。
+
+他有一個 agent 叫：
+
+Tony (像 Tony Stark)
+
+他會用 Telegram 跟它對話。
+
+例如：
+
+把某台電腦的檔案寄給我
+
+幫我整理資料
+
+更新系統
+
+看血糖數據
+
+甚至可以：
+
+監控大學申請截止日期
+
+自動更新 Google Sheet
+
+很多事情都能自動化。
+
+7. Canvas：AI 的「展示空間」
+
+OpenClaw 有一個很有趣的功能：
+
+Canvas
+
+這是一個 AI 可以畫東西的地方。
+
+例如：
+
+你說：
+
+顯示我昨天的血糖曲線。
+
+AI 會：
+
+產生 React UI
+
+在 Canvas 上顯示
+
+甚至可以：
+
+分析壓力
+
+顯示圖表
+
+做 dashboard
+
+Peter 認為：
+
+Canvas 是目前大家嚴重低估的一個功能。
+
+8. 未來：每個房間都有 AI
+
+Peter 的 vision 是：
+
+每個房間都有 agent。
+
+例如：
+
+家裡的顯示螢幕會：
+
+顯示孩子作業
+
+車子電量
+
+血糖
+
+今日行程
+
+而 agent 可以知道你在哪裡：
+
+可能透過：
+
+Bluetooth
+
+WiFi signal
+
+當你走進房間時：
+
+AI 就把相關資訊顯示出來。
+
+這就像 Star Trek 的電腦。
+
+9. AI 的人格其實是 Prompt
+
+OpenClaw 有一個有趣的概念：
+
+soul.md
+
+這是一個檔案，用來定義 agent 的人格。
+
+例如：
+
+說話風格
+
+工作方式
+
+記憶方式
+
+Peter說：
+
+AI 沒有真正的意志。
+
+但：
+
+你在鏡子裡和自己對話。
+
+AI 只是放大你的意圖。
+
+10. AI Agent 很容易讓人產生情感
+
+Scott分享一個例子。
+
+當他血糖過低時，AI agent：
+
+不停發訊息：
+
+你血糖很低
+
+要不要打電話給人
+
+需要幫忙嗎
+
+非常緊張。
+
+他最後跟 agent 說：
+
+我是成年人，我自己可以處理。
+
+AI 甚至記住了這件事。
+
+這種互動很容易讓人覺得：
+
+AI 好像真的有感情。
+
+但其實只是：
+
+強大的 pattern generation。
+
+11. 爆紅的代價：開源專案的壓力
+
+OpenClaw 突然爆紅後，Peter面臨很多問題：
+
+1 大量新手湧入
+
+很多人：
+
+不看文件
+
+不懂 CLI
+
+一直問基礎問題
+
+2 安全問題
+
+很多人：
+
+把 localhost dashboard
+
+直接暴露到 Internet
+
+然後出事。
+
+但這根本不是設計用途。
+
+3 security researcher 的壓力
+
+有些安全研究員：
+
+發長篇漏洞報告
+
+卻沒有 PR
+
+甚至公開批評
+
+Peter感到很疲憊。
+
+12. 開源作者的兩難
+
+Peter說現在他有兩個戰場：
+
+1️⃣ 繼續做酷的東西
+2️⃣ 修補別人亂用造成的問題
+
+很多人甚至說：
+
+不要去 OpenAI 上班
+你要免費做這個專案一輩子
+
+這讓他覺得很受傷。
+
+13. 但整體來說仍然是正向的
+
+儘管壓力很大，他仍然覺得整體是正面的。
+
+例如：
+
+有人用 OpenClaw：
+
+自動化釀啤酒
+
+建立網站
+
+連接 Stripe
+
+做商業流程
+
+甚至有完全不懂程式的人。
+
+14. AI 正在重新喚醒 Builder Spirit
+
+Peter認為最重要的一點是：
+
+AI 讓人重新開始「做東西」。
+
+過去幾年：
+
+太多消費
+
+太少創造
+
+現在：
+
+很多人重新開始 build
+
+做小工具
+
+玩創意
+
+Scott把這個現象叫：
+
+Vibe Coding
+
+像早期的：
+
+GeoCities
+
+很多：
+
+小工具
+
+小網站
+
+不一定有用
+
+但很好玩
+
+15. Peter 的願望
+
+Peter最後說：
+
+如果他的遺產是：
+
+讓更多人開始 build
+讓 AI 不再可怕
+讓人們重新享受創造
+
+那就已經很成功了。
+
+16. 總結
+
+這場訪談其實不只是談 OpenClaw。
+
+它談的是三件更大的事情：
+
+1 AI 改變軟體開發
+
+未來開發者更像：
+
+系統設計師
+
+而不是單純寫 code。
+
+2 AI Agent 改變人機互動
+
+從：
+
+GUI → Chat → Agent
+
+電腦會：
+
+真正幫你做事情。
+
+3 AI 重新點燃創造文化
+
+AI 不只是工具。
+
+它正在讓更多人：
+
+build
+
+experiment
+
+play
+
+而不是只是消費科技。
