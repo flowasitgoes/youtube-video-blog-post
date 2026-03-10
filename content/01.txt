@@ -4,6 +4,7 @@ VIDEO_LIKES: 3.2K
 VIEWS: 209K
 PUBLISHED: 12 days ago
 
+
 Mitchell Hashimoto’s New Way of Writing Code
 從自學程式到創辦 HashiCorp：一段改變雲端基礎設施的旅程
 

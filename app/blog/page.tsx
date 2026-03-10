@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { getArticles } from "@/lib/getArticles";
 import LanguageSwitch from "@/components/LanguageSwitch";
-import { getSiteName, getSubtitle } from "@/lib/site";
+import {
+  getSiteName,
+  getSubtitle,
+  META_DESCRIPTION_ZH,
+  META_DESCRIPTION_EN,
+} from "@/lib/site";
 import type { Locale } from "@/lib/types";
 
 type Props = {
@@ -11,6 +16,33 @@ type Props = {
 function getLang(searchParams: { lang?: string }): Locale {
   const lang = searchParams?.lang;
   return lang === "en" ? "en" : "zh";
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  const resolved = await searchParams;
+  const lang = getLang(resolved);
+  const siteName = getSiteName(lang);
+  const listTitle = lang === "zh" ? "文章列表" : "Articles";
+  const description = lang === "zh" ? META_DESCRIPTION_ZH : META_DESCRIPTION_EN;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+  const url = `${siteUrl}/blog${lang === "zh" ? "" : "?lang=en"}`;
+  const ogImage = `${siteUrl}/icons/video-digest-1200x630.jpg`;
+  return {
+    title: `${listTitle} | ${siteName}`,
+    description,
+    openGraph: {
+      title: `${listTitle} | ${siteName}`,
+      description,
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${listTitle} | ${siteName}`,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function BlogPage({ searchParams }: Props) {

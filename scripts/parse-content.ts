@@ -73,6 +73,16 @@ function parseVideoMetaLine(line: string): Partial<YouTubeMeta> | null {
   return null;
 }
 
+/** 解析 TAGS: 行，回傳 tag 陣列 */
+function parseTagsLine(line: string): string[] | null {
+  const m = line.trim().match(/^TAGS:\s*(.+)$/i);
+  if (!m) return null;
+  return m[1]
+    .split(/[,，、]+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 /** 是否為「編號小節」標題行，例如 "1. 一切的開始" 或 "18. AI 對開源的衝擊" */
 const NUMBERED_SECTION_RE = /^\d+\.\s+.+/;
 
@@ -86,6 +96,7 @@ function parseTxtNumberedFormat(content: string): Omit<Article, "slug"> {
   const lines = content.split(/\r?\n/);
   let videoId: string | undefined;
   let videoMetaFromTxt: Partial<YouTubeMeta> = {};
+  let tags: string[] | undefined;
   let titleEn = "";
   let titleZh = "";
   let descZh = "";
@@ -117,6 +128,12 @@ function parseTxtNumberedFormat(content: string): Omit<Article, "slug"> {
         i++;
         continue;
       }
+      const parsedTags = parseTagsLine(lines[i]);
+      if (parsedTags) {
+        tags = parsedTags;
+        i++;
+        continue;
+      }
       if (lines[i].trim() !== "") break;
       i++;
     }
@@ -129,6 +146,7 @@ function parseTxtNumberedFormat(content: string): Omit<Article, "slug"> {
         sections: [],
         ...(videoId && { videoId }),
         ...videoMetaFromTxt,
+        ...(tags && tags.length > 0 && { tags }),
       };
   }
 
@@ -142,6 +160,7 @@ function parseTxtNumberedFormat(content: string): Omit<Article, "slug"> {
       sections: [],
       ...(videoId && { videoId }),
       ...videoMetaFromTxt,
+      ...(tags && tags.length > 0 && { tags }),
     };
 
   titleZh = lines[i].trim();
@@ -181,6 +200,7 @@ function parseTxtNumberedFormat(content: string): Omit<Article, "slug"> {
     sections,
     ...(videoId && { videoId }),
     ...videoMetaFromTxt,
+    ...(tags && tags.length > 0 && { tags }),
   };
 }
 
@@ -204,6 +224,7 @@ function parseTxtLegacy(content: string): Omit<Article, "slug"> {
   let likeCount: string | undefined;
   let viewCount: string | undefined;
   let publishedAt: string | undefined;
+  let tags: string[] | undefined;
   const sections: Section[] = [];
   let i = 0;
 
@@ -222,6 +243,7 @@ function parseTxtLegacy(content: string): Omit<Article, "slug"> {
         line.startsWith("VIDEO_LIKES:") ||
         line.startsWith("VIEWS:") ||
         line.startsWith("PUBLISHED:") ||
+        line.startsWith("TAGS:") ||
         line.startsWith("#")
       ) {
         break;
@@ -257,6 +279,12 @@ function parseTxtLegacy(content: string): Omit<Article, "slug"> {
     }
     if (line.startsWith("PUBLISHED:")) {
       publishedAt = line.replace(/^PUBLISHED:\s*/i, "").trim();
+      i++;
+      continue;
+    }
+    if (line.startsWith("TAGS:")) {
+      const parsed = parseTagsLine(line);
+      if (parsed?.length) tags = parsed;
       i++;
       continue;
     }
@@ -303,6 +331,7 @@ function parseTxtLegacy(content: string): Omit<Article, "slug"> {
     ...(likeCount && { likeCount }),
     ...(viewCount && { viewCount }),
     ...(publishedAt && { publishedAt }),
+    ...(tags && tags.length > 0 && { tags }),
   };
 }
 

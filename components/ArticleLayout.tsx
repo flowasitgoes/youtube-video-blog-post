@@ -18,6 +18,8 @@ type ArticleLayoutProps = {
   videoId?: string;
   videoMeta?: VideoMeta;
   lang?: Locale;
+  /** 文章標籤，顯示於文末，供 SEO 與分類 */
+  tags?: string[];
 };
 
 function formatCount(n: string): string {
@@ -63,6 +65,7 @@ export default function ArticleLayout({
   videoId,
   videoMeta,
   lang = "zh",
+  tags,
 }: ArticleLayoutProps) {
   const hasMeta =
     videoMeta &&
@@ -173,6 +176,22 @@ export default function ArticleLayout({
       <div className="space-y-10 text-[17px] leading-[1.8] text-neutral-800 dark:text-neutral-200">
         {children}
       </div>
+      {tags && tags.length > 0 && (
+        <footer className="mt-12 border-t border-neutral-200 pt-8 dark:border-neutral-700">
+          <p className="mb-3 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            {lang === "zh" ? "標籤" : "Tags"}
+          </p>
+          <ul className="flex flex-wrap gap-2" aria-label={lang === "zh" ? "文章標籤" : "Article tags"}>
+            {tags.map((tag) => (
+              <li key={tag}>
+                <span className="inline-block rounded-full bg-neutral-100 px-3 py-1.5 text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300">
+                  {tag}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      )}
     </article>
   );
 }
