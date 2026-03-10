@@ -72,7 +72,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
-      <body className="antialiased">{children}</body>
+      <body className="flex min-h-screen flex-col antialiased">
+        <main className="flex-1">{children}</main>
+        <footer className="border-t border-neutral-200 py-6 dark:border-neutral-800">
+          <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
+            <a
+              href="https://ifunlove.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-700 dark:hover:text-neutral-300"
+            >
+              ifunlove.com
+            </a>
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
